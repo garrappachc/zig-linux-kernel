@@ -36,7 +36,9 @@ pub fn build(b: *std.Build) void {
         "--ibt",
         "--orc",
         "--retpoline",
-        "--rethunk",
+        // https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html#index-mfunction-return
+        // Linux kernel modules use -mfunction-return=thunk-extern, but zig doesn't seem to support it yet
+        // "--rethunk",
         "--sls",
         "--static-call",
         "--prefix=16",
